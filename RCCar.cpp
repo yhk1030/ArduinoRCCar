@@ -40,3 +40,27 @@ void RCCar::RCStart(){
         break;
     }
 }
+
+void RCCar::RCForward(){
+    _car.fwdStraight(RCCAR_DEFAULT_SPEED);
+    delay(500);
+}
+
+void RCCar::RCBackward(){
+    _car.bwdStraight(RCCAR_DEFAULT_SPEED)
+    delay(500);
+}
+
+void RCCar::RCTurnLeft(){
+    _car.turnLeft();
+}
+
+void RCCar::RCTurnRight(){
+    _car.turnRight();
+}
+
+void RCCar::Sensing(boolean sense[3]){ // 0 : left, 1 : front, 2 : right
+    sense[0] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceLeft());
+    sense[2] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceRight());
+    sense[1] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceFront());
+}

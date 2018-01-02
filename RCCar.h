@@ -9,6 +9,8 @@
 #include <Wire.h> 
 
 #define RCCAR_IR_PIN 3
+#define c 10
+#define RCCAR_DEFAULT_SPEED 100
 
 
 class RCCar {
@@ -16,6 +18,12 @@ public:
 	RCCar();
     void init();
     void RCStart();
+    void Sensing(Boolean sense[3]);
+    void RCForward();
+    void RCTurnRight();
+    void RCTurnLeft();
+    void RCBackward();
+
     // sensing USS(Boolean sense[3])
     // FWD
     // TR
