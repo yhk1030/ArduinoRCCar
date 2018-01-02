@@ -59,7 +59,7 @@ void RCCar::RCTurnRight(){
     _car.turnRight();
 }
 
-void RCCar::Sensing(boolean sense[3]){ // 0 : left, 1 : front, 2 : right
+void RCCar::Sensing(boolean sense[3]){ // 0 : left, 1 : front, 2 : right & true : can collision, false : not collision
     sense[0] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceLeft());
     sense[2] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceRight());
     sense[1] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceFront());

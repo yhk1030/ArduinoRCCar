@@ -9,7 +9,7 @@
 #include <Wire.h> 
 
 #define RCCAR_IR_PIN 3
-#define c 10
+#define RCCAR_COLLISION_DISTANCE 10
 #define RCCAR_DEFAULT_SPEED 100
 
 
