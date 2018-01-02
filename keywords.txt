@@ -1,0 +1,58 @@
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+
+CarContoller	    KEYWORD1
+UltraSonicSensor	KEYWORD1
+ServoContorller	    KEYWORD1
+RemoteController	KEYWORD1
+LcdDisplay	        KEYWORD1
+RCCar               KEYWORD1
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+
+#CarContoller Functions
+init                KEYWORD2
+fwdStraight	        KEYWORD2
+fwdLeft	            KEYWORD2
+fwdRight	        KEYWORD2
+turnLeft	        KEYWORD2
+turnRight	        KEYWORD2
+bwdStraight	        KEYWORD2
+bwdRight	        KEYWORD2
+bwdLeft	            KEYWORD2
+carStop	            KEYWORD2
+
+#UltraSonicSensor Functions
+init                KEYWORD2
+checkDistanceFront	KEYWORD2
+checkDistanceRight  KEYWORD2
+checkDistanceLEFT   KEYWORD2
+
+#ServoContorller Functions
+init                KEYWORD2
+setFront	        KEYWORD2
+setLeft	            KEYWORD2
+setRight	        KEYWORD2
+setPosition	        KEYWORD2
+
+#RemoteController Functions
+init                KEYWORD2
+getSpeed	        KEYWORD2
+getCommand	        KEYWORD2
+
+#LcdDisplay Functions
+init                KEYWORD2
+print	            KEYWORD2
+turnOff             KEYWORD2
+turnOn              KEYWORD2
+
+#RCCar Functions
+init                KEYWORD2
+rcStart             KEYWORD2
+
+###########################################
+# Constants (LITERAL1)
+###########################################
