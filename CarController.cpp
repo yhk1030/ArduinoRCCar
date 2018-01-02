@@ -86,7 +86,6 @@ void CarController::turnLeft(void){
     digitalWrite(CC_LW_PIN2,LOW);
     delay(750);
     carStop();
-    delay(400);
 }
 
 /*************************************
@@ -106,7 +105,6 @@ void CarController::turnRight(void){
     digitalWrite(CC_LW_PIN2,HIGH);   
     delay(750);
     carStop();
-    delay(400);
 }
 
 /*************************************
