@@ -84,9 +84,15 @@ int RemoteController::getCommand(void)
         _command = RC_MOVE;
       break;
     default:
-        _lcd->print("UNKNOWN COMMAND");
-        _command = RC_STOP;
-        _speed = 0;
+		  _command = !_command;
+		  if(_command == RC_STOP){
+        _lcd->print("UNKNOWN/STOP!");
+  	    _speed = 0; 
+      }
+      else{
+        _lcd->print("UNKNOWN/GO!");
+        _speed = RC_SPEED_DEFAULT;	
+      } 
       break;
     }
     _irRecvr->resume(); // To receive the next value

@@ -9,7 +9,7 @@
 #include <Wire.h> 
 
 #define RCCAR_IR_PIN 3
-#define RCCAR_COLLISION_DISTANCE 10
+#define RCCAR_COLLISION_DISTANCE 10 // 충돌감지 거리
 #define RCCAR_DEFAULT_SPEED 100
 
 
@@ -19,12 +19,12 @@ public:
     void init();
     boolean start();
     boolean startSimple();
-    void senseObstacle(boolean check[]);
+    void senseObstacle(boolean check[],int distance);
     void forward();
     void turnRight();
     void turnLeft();
     void backward();
-    boolean senseObstacleFront();
+    boolean senseObstacleFront(int distance);
 
 private:
     ServoController _servo;
