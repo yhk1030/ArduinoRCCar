@@ -17,7 +17,7 @@ class RCCar {
 public:
 	RCCar();
     void init();
-    boolean start();
+    void start();
     void senseObstacle(boolean check[3]);
     void forward();
     void turnRight();

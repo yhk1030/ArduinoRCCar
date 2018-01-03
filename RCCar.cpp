@@ -17,8 +17,7 @@ void RCCar::init(){
     _carCommand = RC_STOP;
 }
 
-boolean RCCar::start(){
-    boolean goStop = false;
+void RCCar::start(){
     _carCommand = _remote.getCommand();
     _carSpeed = _remote.getSpeed();
     switch(_carCommand){
@@ -32,7 +31,6 @@ boolean RCCar::start(){
         _car.carStop();
         break;
     case RC_MOVE:
-        goStop = true;
         if(_carSpeed > 0)
         _car.fwdStraight(_carSpeed);
         else
@@ -41,7 +39,6 @@ boolean RCCar::start(){
     default:
         break;
     }
-    return goStop;
 }
 
 void RCCar::forward(){
