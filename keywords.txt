@@ -58,6 +58,7 @@ turnRight           KEYWORD2
 turnLeft            KEYWORD2
 backward            KEYWORD2
 senseObstacleFront  KEYWORD2
+startSimple         KEYWORD2
 
 ###########################################
 # Constants (LITERAL1)
