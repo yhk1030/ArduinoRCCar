@@ -17,12 +17,13 @@ class RCCar {
 public:
 	RCCar();
     void init();
-    void start();
-    void senseObstacle(boolean check[3]);
+    boolean start();
+    void senseObstacle(boolean check[]);
     void forward();
     void turnRight();
     void turnLeft();
     void backward();
+    boolean senseObstacleFront();
 
 private:
     ServoController _servo;

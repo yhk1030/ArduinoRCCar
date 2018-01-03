@@ -17,7 +17,7 @@ void RCCar::init(){
     _carCommand = RC_STOP;
 }
 
-void RCCar::start(){
+boolean RCCar::start(){
     _carCommand = _remote.getCommand();
     _carSpeed = _remote.getSpeed();
     switch(_carCommand){
@@ -35,10 +35,12 @@ void RCCar::start(){
         _car.fwdStraight(_carSpeed);
         else
         _car.bwdStraight(-_carSpeed);
+        return true;
         break;
     default:
         break;
     }
+    return false;
 }
 
 void RCCar::forward(){
@@ -59,8 +61,23 @@ void RCCar::turnRight(){
     _car.turnRight();
 }
 
-void RCCar::senseObstacle(boolean check[3]){ // 0 : left, 1 : front, 2 : right & true : block, false : not block
-    check[0] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceLeft());
-    check[2] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceRight());
-    check[1] = (RCCAR_COLLISION_DISTANCE < _ultraSonic.checkDistanceFront());
+void RCCar::senseObstacle(boolean check[]){ // 0 : left, 1 : front, 2 : right & true : block, false : not block
+    check[0] = false;
+    check[1] = false;
+    check[2] = false;
+    if(RCCAR_COLLISION_DISTANCE > _ultraSonic.checkDistanceLeft())
+        check[0] = true;
+    delay(300);
+    if(RCCAR_COLLISION_DISTANCE > _ultraSonic.checkDistanceRight())
+        check[2] = true;
+    delay(300);
+    if(RCCAR_COLLISION_DISTANCE > _ultraSonic.checkDistanceFront())
+        check[1] = true;
+    delay(300);
+}
+
+boolean RCCar::senseObstacleFront(){
+    if(RCCAR_COLLISION_DISTANCE > _ultraSonic.checkDistanceFront())
+        return true;
+    return false;
 }
