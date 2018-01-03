@@ -51,12 +51,12 @@ turnOn              KEYWORD2
 
 #RCCar Functions
 init                KEYWORD2
-RCStart             KEYWORD2
-Sensing             KEYWORD2
-RCForward           KEYWORD2
-RCTurnRight         KEYWORD2
-RCTurnLeft          KEYWORD2
-RCBackward          KEYWORD2
+start               KEYWORD2
+senseObstacle       KEYWORD2
+forward             KEYWORD2
+turnRight           KEYWORD2
+turnLeft            KEYWORD2
+backward            KEYWORD2
 
 ###########################################
 # Constants (LITERAL1)

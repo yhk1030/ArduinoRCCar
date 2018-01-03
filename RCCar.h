@@ -17,18 +17,13 @@ class RCCar {
 public:
 	RCCar();
     void init();
-    void RCStart();
-    void Sensing(Boolean sense[3]);
-    void RCForward();
-    void RCTurnRight();
-    void RCTurnLeft();
-    void RCBackward();
+    boolean start();
+    void senseObstacle(boolean check[3]);
+    void forward();
+    void turnRight();
+    void turnLeft();
+    void backward();
 
-    // sensing USS(Boolean sense[3])
-    // FWD
-    // TR
-    // TL
-    // BWD
 private:
     ServoController _servo;
     LcdDisplay _lcdDisplay;
