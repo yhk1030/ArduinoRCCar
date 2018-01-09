@@ -73,3 +73,21 @@ int UltraSonicSensor::checkDistanceRight(){
     Fdistance= Fdistance/58;
     return Fdistance;
 }
+
+/*************************************
+ * name : checkDistancePosition
+ * input : Position(0~180)
+ * return : Distance to input side(cm)
+ * Pulse timing / 58 = distance(cm)
+ ************************************/
+int UltraSonicSensor::checkDistancePosition(int position){
+    _servo->setPosition(position);
+    digitalWrite(US_TRIG_PIN, LOW);
+    delayMicroseconds(2);
+    digitalWrite(US_TRIG_PIN, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(US_TRIG_PIN, LOW);
+    float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
+    Fdistance= Fdistance/58;
+    return Fdistance;
+}
