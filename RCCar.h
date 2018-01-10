@@ -20,7 +20,8 @@ public:
     boolean start();
     boolean startSimple();
     void senseObstacle(boolean check[],int distance);
-    void senseObstacleArray(boolean check[][], int number, int distance);
+    void senseObstacleDistance(int check[], int number);
+    void senseObstacleStatus(boolean check[], int number, int distance);
     void forward();
     void turnRight();
     void turnLeft();
