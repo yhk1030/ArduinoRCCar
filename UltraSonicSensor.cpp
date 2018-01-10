@@ -28,13 +28,14 @@ void UltraSonicSensor::init(ServoController *servo){
  ************************************/
 int UltraSonicSensor::checkDistanceFront(){
     _servo->setFront();
+    delay(200);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
     delayMicroseconds(10);
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
-    Fdistance= Fdistance/5.8/10;
+    Fdistance= Fdistance/58;
     return Fdistance;
 }
 
@@ -46,13 +47,14 @@ int UltraSonicSensor::checkDistanceFront(){
  ************************************/
 int UltraSonicSensor::checkDistanceLeft(){
     _servo->setLeft();
+    delay(200);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
     delayMicroseconds(10);
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
-    Fdistance= Fdistance/5.8/10;
+    Fdistance= Fdistance/58;
     return Fdistance;
 }
 
@@ -64,13 +66,14 @@ int UltraSonicSensor::checkDistanceLeft(){
  ************************************/
 int UltraSonicSensor::checkDistanceRight(){
     _servo->setRight();
+    delay(200);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
     delayMicroseconds(10);
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
-    Fdistance= Fdistance/5.8/10;
+    Fdistance= Fdistance/58;
     return Fdistance;
 }
 
@@ -88,6 +91,6 @@ int UltraSonicSensor::checkDistancePosition(int position){
     delayMicroseconds(10);
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
-    Fdistance= Fdistance/5.8/10;
+    Fdistance= Fdistance/58;
     return Fdistance;
 }
