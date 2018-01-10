@@ -30,7 +30,7 @@ public:
     void backward();
     boolean senseObstacleFront(int distance);
     int checkUnitDistance(int degree);
-
+    void nUnitDistance(int check[]);
 private:
     ServoController _servo;
     LcdDisplay _lcdDisplay;

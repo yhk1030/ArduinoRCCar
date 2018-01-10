@@ -170,3 +170,22 @@ int RCCar::checkUnitDistance(int degree){
         unitDistance = 3;
     return unitDistance;
 }
+
+void RCCar::nUnitDistance(int check[3]){
+    int distance = _ultraSonic.checkDistancePosition(0);
+    int unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    check[0] = unitDistance;
+    _lcdDisplay.print((char)unitDistance);
+    delay(1000);
+    distance = _ultraSonic.checkDistancePosition(180);
+    unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    check[2] = unitDistance;
+    _lcdDisplay.print((char)unitDistance);
+    delay(1000);
+    distance = _ultraSonic.checkDistancePosition(90);
+    unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    check[1] = unitDistance;
+    _lcdDisplay.print((char)unitDistance);
+    delay(1000);
+
+}
