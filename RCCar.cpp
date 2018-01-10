@@ -139,6 +139,19 @@ void RCCar::senseObstacle(boolean check[], int distance = RCCAR_COLLISION_DISTAN
     delay(500);
 }
 
+void RCCar::senseObstacleArray(boolean check[][], int number, int distance = RCCAR_COLLISION_DISTANCE){ 
+    for(int i=0; i<number; i++){
+        if(distance > _ultraSonic.checkDistancePostion(check[i][0])){
+            check[i][1] = true;
+        }
+        else{
+            check[i][1] = false;
+        }
+        delay(100);
+    }
+  delay(500);
+}
+
 boolean RCCar::senseObstacleFront(int distance = RCCAR_COLLISION_DISTANCE){
     if(distance > _ultraSonic.checkDistanceFront())
         return true;
