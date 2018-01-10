@@ -75,7 +75,7 @@ void CarController::fwdRight(int speed){
  * return : none
  * set the Device turn 90 degree to Left
  ************************************/
-void CarController::turnLeft(void){
+void CarController::turnRight(void){
     //analogWrite(CC_RW_ENABLE,CC_DEFAULT_SPEED);
     digitalWrite(CC_RW_ENABLE,HIGH);
     digitalWrite(CC_RW_PIN1,LOW);
@@ -92,7 +92,7 @@ void CarController::turnLeft(void){
  * return : none
  * set the Device turn 90 degree to Right
  ************************************/
-void CarController::turnRight(void){
+void CarController::turnLeft(void){
     //analogWrite(CC_RW_ENABLE,CC_DEFAULT_SPEED);
     digitalWrite(CC_RW_ENABLE,HIGH);
     digitalWrite(CC_RW_PIN1,HIGH);
