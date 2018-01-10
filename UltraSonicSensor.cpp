@@ -36,6 +36,8 @@ int UltraSonicSensor::checkDistanceFront(){
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
     Fdistance= Fdistance/58;
+    if(Fdistance < 0.01)
+        Fdistance = 400;
     return Fdistance;
 }
 
@@ -55,6 +57,8 @@ int UltraSonicSensor::checkDistanceLeft(){
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
     Fdistance= Fdistance/58;
+    if(Fdistance < 0.01)
+        Fdistance = 400;
     return Fdistance;
 }
 
@@ -74,6 +78,8 @@ int UltraSonicSensor::checkDistanceRight(){
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
     Fdistance= Fdistance/58;
+    if(Fdistance < 0.01)
+        Fdistance = 400;
     return Fdistance;
 }
 
@@ -92,5 +98,7 @@ int UltraSonicSensor::checkDistancePosition(int position){
     digitalWrite(US_TRIG_PIN, LOW);
     float Fdistance = pulseIn(US_ECHO_PIN, HIGH);
     Fdistance= Fdistance/58;
+    if(Fdistance < 0.01)
+        Fdistance = 400;
     return Fdistance;
 }
