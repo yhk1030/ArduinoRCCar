@@ -30,7 +30,7 @@ init                KEYWORD2
 checkDistanceFront	KEYWORD2
 checkDistanceRight  KEYWORD2
 checkDistanceLEFT   KEYWORD2
-checkDistancePostion KEYWORD2
+checkDistancePosition KEYWORD2
 
 #ServoContorller Functions
 init                KEYWORD2

@@ -23,7 +23,7 @@ public:
     boolean startSimple();
     void senseObstacle(boolean check[],int distance);
     void senseObstacleDistance(int check[], int number);
-    boolean isObstacle(int ,int);
+    boolean isObstacle(int check, int destanceUnit);
     void forward();
     void turnRight();
     void turnLeft();

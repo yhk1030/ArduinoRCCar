@@ -13,7 +13,7 @@ public:
 	int checkDistanceFront();
     int checkDistanceLeft();
     int checkDistanceRight();
-    int checkDistancePostion(int position);
+    int checkDistancePosition(int position);
 private:
     ServoController *_servo;
 };
