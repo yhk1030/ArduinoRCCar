@@ -28,7 +28,7 @@ void UltraSonicSensor::init(ServoController *servo){
  ************************************/
 int UltraSonicSensor::checkDistanceFront(){
     _servo->setFront();
-    delay(200);
+    delay(500);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
@@ -49,7 +49,7 @@ int UltraSonicSensor::checkDistanceFront(){
  ************************************/
 int UltraSonicSensor::checkDistanceLeft(){
     _servo->setLeft();
-    delay(200);
+    delay(500);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
@@ -70,7 +70,7 @@ int UltraSonicSensor::checkDistanceLeft(){
  ************************************/
 int UltraSonicSensor::checkDistanceRight(){
     _servo->setRight();
-    delay(200);
+    delay(500);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);
