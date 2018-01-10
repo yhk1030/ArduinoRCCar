@@ -62,6 +62,7 @@ senseObstacleFront  KEYWORD2
 senseObstacleDistance   KEYWORD2
 isObstacle          KEYWORD2
 startSimple         KEYWORD2
+checkUnitDistance   KEYWORD2
 
 ###########################################
 # Constants (LITERAL1)

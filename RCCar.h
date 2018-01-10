@@ -29,6 +29,7 @@ public:
     void turnLeft();
     void backward();
     boolean senseObstacleFront(int distance);
+    int checkUnitDistance(int degree);
 
 private:
     ServoController _servo;

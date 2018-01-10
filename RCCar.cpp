@@ -161,3 +161,10 @@ boolean RCCar::senseObstacleFront(int distance = RCCAR_COLLISION_DISTANCE){
         return true;
     return false;
 }
+
+
+int RCCar::checkUnitDistance(int degree){
+    int distance = _ultraSonic.checkDistancePosition(degree);
+    int unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    return unitDistance;
+}
