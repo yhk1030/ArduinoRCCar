@@ -60,7 +60,7 @@ turnLeft            KEYWORD2
 backward            KEYWORD2
 senseObstacleFront  KEYWORD2
 senseObstacleDistance   KEYWORD2
-senseObstacleStatus KEYWORD2
+isObstacle          KEYWORD2
 startSimple         KEYWORD2
 
 ###########################################

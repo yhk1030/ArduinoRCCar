@@ -11,6 +11,8 @@
 #define RCCAR_IR_PIN 3
 #define RCCAR_COLLISION_DISTANCE 10 // 충돌감지 거리
 #define RCCAR_DEFAULT_SPEED 100
+#define RCCAR_MOVING_DISTANCE 11
+#define RCCAR_SAFETY_BUFFER 3
 
 
 class RCCar {
@@ -21,7 +23,7 @@ public:
     boolean startSimple();
     void senseObstacle(boolean check[],int distance);
     void senseObstacleDistance(int check[], int number);
-    void senseObstacleStatus(boolean check[], int number, int distance);
+    boolean isObstacle(int ,int);
     void forward();
     void turnRight();
     void turnLeft();
