@@ -91,6 +91,7 @@ int UltraSonicSensor::checkDistanceRight(){
  ************************************/
 int UltraSonicSensor::checkDistancePosition(int position){
     _servo->setPosition(position);
+    delay(500);
     digitalWrite(US_TRIG_PIN, LOW);
     delayMicroseconds(2);
     digitalWrite(US_TRIG_PIN, HIGH);

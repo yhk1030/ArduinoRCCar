@@ -69,9 +69,9 @@ boolean RCCar::startSimple(){
  * return : none
  * forward during 1s
  ************************************/
-void RCCar::forward(){
+void RCCar::forward(int numberOfMovement){
     _car.fwdStraight(RCCAR_DEFAULT_SPEED);
-    delay(500);
+    delay(500*numberOfMovement);
     _car.carStop();
     delay(500);
 }
@@ -82,9 +82,9 @@ void RCCar::forward(){
  * return : none
  * backward during 1s
  ************************************/
-void RCCar::backward(){
+void RCCar::backward(int numberOfMovement){
     _car.bwdStraight(RCCAR_DEFAULT_SPEED);
-    delay(500);
+    delay(500*numberOfMovement);
     _car.carStop();
     delay(500);
 }
@@ -97,7 +97,7 @@ void RCCar::backward(){
  ************************************/
 void RCCar::turnLeft(){
     _car.turnLeft();
-    delay(750);
+    delay(_turnDelay);
     _car.carStop();
     delay(250);
 }
@@ -110,9 +110,18 @@ void RCCar::turnLeft(){
  ************************************/
 void RCCar::turnRight(){
     _car.turnRight();
-    delay(750);
+    delay(_turnDelay);
     _car.carStop();
     delay(250);
+}
+
+void RCCar::checkUnitDistance(){
+    int initDistance;
+    initDistance = _ultraSonic.checkDistanceFront();
+    forward(1);
+    _unitDistance = initDistance - _ultraSonic.checkDistanceFront();
+    _lcdDisplay.print(_unitDistance);
+    _turnDelay = 9000/_unitDistance;
 }
 
 /*************************************
@@ -139,50 +148,52 @@ void RCCar::senseObstacle(boolean check[], int distance = RCCAR_COLLISION_DISTAN
     delay(500);
 }
 
-void RCCar::senseObstacleDistance(int check[], int number){
-    int interval = 160/(number-1);
-    int degree = 10;
-    int currentDegree = 0;
-    for(int i=0; i<number; i++){
-        currentDegree = degree+interval*i;
-        check[i] = _ultraSonic.checkDistancePosition(currentDegree);
-        delay(100);
+int RCCar::senseObstacleDistance(int check[], int number){
+    if(number < 1 || number > 160){
+        return -1;
+    }
+    else if(number==1){
+        check[0] = _ultraSonic.checkDistanceFront();
+    }
+    else{
+        int interval = 160/(number-1);
+        int degree = 10;
+        for(int i=0; i<number; i++){
+            check[i] = _ultraSonic.checkDistancePosition(degree+interval*i);
+            delay(interval*5);
+        }
+        // set servo motor position to front
+        _ultraSonic.checkDistanceFront();
     }
     delay(500);
+    return 0;
 }
 
 boolean RCCar::isObstacle(int check, int distanceUnit){
-    int unit = (check-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    int unit = (check-RCCAR_SAFETY_BUFFER)/_unitDistance;
     return (unit > distanceUnit);
 }
 
-boolean RCCar::senseObstacleFront(int distance = RCCAR_COLLISION_DISTANCE){
-    if(distance > _ultraSonic.checkDistanceFront())
-        return true;
-    return false;
-}
-
-
 int RCCar::checkUnitDistance(int degree){
     int distance = _ultraSonic.checkDistancePosition(degree);
-    int unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
+    int unitDistance = (distance-RCCAR_SAFETY_BUFFER)/_unitDistance;
     if(unitDistance>3)
         unitDistance = 3;
     return unitDistance;
 }
 
-void RCCar::nUnitDistance(int check[3]){
-    int distance = _ultraSonic.checkDistanceLeft();
-    int unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
-    check[0] = unitDistance;
-    _lcdDisplay.print(unitDistance);
-    distance = _ultraSonic.checkDistanceFront();
-    unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
-    check[1] = unitDistance;
-    _lcdDisplay.print(unitDistance);
-    distance = _ultraSonic.checkDistanceRight();
-    unitDistance = (distance-RCCAR_SAFETY_BUFFER)/RCCAR_MOVING_DISTANCE;
-    check[2] = unitDistance;
-    _lcdDisplay.print(unitDistance);
-    _ultraSonic.checkDistanceFront();
+int RCCar::nUnitDistance(int nUnit[], int numberOfDirection){
+    if(numberOfDirection<1 || numberOfDirection>9){
+        return -1;
+    }
+
+    int check[9];
+    senseObstacleDistance(check,numberOfDirection);
+
+    for(int i = 0; i<numberOfDirection; i++){
+        nUnit[i]=(check[i]-RCCAR_SAFETY_BUFFER)/_unitDistance;
+        _lcdDisplay.print(nUnit[i]);
+    }
+
+    return 0;
 }

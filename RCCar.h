@@ -19,24 +19,26 @@ class RCCar {
 public:
 	RCCar();
     void init();
+    void checkUnitDistance();
     boolean start();
     boolean startSimple();
     void senseObstacle(boolean check[],int distance);
-    void senseObstacleDistance(int check[], int number);
+    int senseObstacleDistance(int check[], int number);
     boolean isObstacle(int check, int destanceUnit);
-    void forward();
+    void forward(int numberOfMovement);
     void turnRight();
     void turnLeft();
-    void backward();
-    boolean senseObstacleFront(int distance);
+    void backward(int numberOfMovement);
     int checkUnitDistance(int degree);
-    void nUnitDistance(int check[]);
+    int nUnitDistance(int nUnit[], int numberOfDirection);
 private:
     ServoController _servo;
     LcdDisplay _lcdDisplay;
     RemoteController _remote;
     CarController _car;
     UltraSonicSensor _ultraSonic;
+    int _unitDistance;
+    int _turnDelay;
     int _carCommand;
     int _carSpeed;
     int _distance;
