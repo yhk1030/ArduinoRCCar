@@ -6,6 +6,7 @@
 #include "RemoteController.h"
 #include "CarController.h"
 #include "UltraSonicSensor.h"
+#include "IRProximity.h"
 #include <Wire.h> 
 
 #define RCCAR_IR_PIN 3
@@ -28,15 +29,22 @@ public:
     void forward(int numberOfMovement);
     void turnRight();
     void turnLeft();
+    void nDForward();
+    void nDTurnRight();
+    void nDTurnLeft();
     void backward(int numberOfMovement);
     int checkUnitDistance(int degree);
     int nUnitDistance(int nUnit[], int numberOfDirection);
+    boolean checkIRPLeft();
+    boolean checkIRPCenter();
+    boolean checkIRPRight();
 private:
     ServoController _servo;
     LcdDisplay _lcdDisplay;
     RemoteController _remote;
     CarController _car;
     UltraSonicSensor _ultraSonic;
+    IRProximity _irProxi;
     int _unitDistance;
     int _turnDelay;
     int _carCommand;

@@ -50,6 +50,12 @@ print	            KEYWORD2
 turnOff             KEYWORD2
 turnOn              KEYWORD2
 
+#IRProximitySensor Functions
+init                KEYWORD2
+checkLeft           KEYWORD2
+checkCenter         KEYWORD2
+checkRight          KEYWORD2
+
 #RCCar Functions
 init                KEYWORD2
 start               KEYWORD2
@@ -57,6 +63,9 @@ senseObstacle       KEYWORD2
 forward             KEYWORD2
 turnRight           KEYWORD2
 turnLeft            KEYWORD2
+nDForward           KEYWORD2
+nDTurnRight         KEYWORD2
+nDTurnLeft          KEYWORD2
 backward            KEYWORD2
 senseObstacleDistance   KEYWORD2
 isObstacle          KEYWORD2
@@ -64,6 +73,9 @@ startSimple         KEYWORD2
 checkUnitDistance   KEYWORD2
 nUnitDistance       KEYWORD2
 checkUnitDistance   KEYWORD2
+checkIRPLeft        KEYWORD2
+checkIRPRight       KEYWORD2
+checkIRPCenter      KEYWORD2
 
 ###########################################
 # Constants (LITERAL1)

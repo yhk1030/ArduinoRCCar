@@ -44,11 +44,13 @@ void CarController::fwdStraight(int speed){
  * fwd turn Left and set speed to input value
  ************************************/
 void CarController::fwdLeft(int speed){
-    int dSpeed = map(speed, 0, 1023, 0 , 255);
-    analogWrite(CC_RW_ENABLE,dSpeed);
+    //int dSpeed = map(speed, 0, 1023, 0 , 255);
+    //analogWrite(CC_RW_ENABLE,dSpeed);
+    digitalWrite(CC_RW_ENABLE,HIGH);
     digitalWrite(CC_RW_PIN1,HIGH);
     digitalWrite(CC_RW_PIN2,LOW);
-    analogWrite(CC_LW_ENABLE,0);
+    //analogWrite(CC_LW_ENABLE,0);
+    digitalWrite(CC_LW_ENABLE,LOW);
     digitalWrite(CC_LW_PIN1,LOW);
     digitalWrite(CC_LW_PIN2,LOW);
 }
@@ -60,11 +62,13 @@ void CarController::fwdLeft(int speed){
  * fwd turn Right and set speed to input value
  ************************************/
 void CarController::fwdRight(int speed){
-    int dSpeed = map(speed, 0, 1023, 0 , 255);
-    analogWrite(CC_RW_ENABLE,0);
+    //int dSpeed = map(speed, 0, 1023, 0 , 255);
+    //analogWrite(CC_RW_ENABLE,0);
+    digitalWrite(CC_RW_ENABLE,LOW);
     digitalWrite(CC_RW_PIN1,LOW);
     digitalWrite(CC_RW_PIN2,LOW);
-    analogWrite(CC_LW_ENABLE,dSpeed);
+    //analogWrite(CC_LW_ENABLE,dSpeed);
+    digitalWrite(CC_LW_ENABLE,HIGH);
     digitalWrite(CC_LW_PIN1,HIGH);
     digitalWrite(CC_LW_PIN2,LOW);
 }

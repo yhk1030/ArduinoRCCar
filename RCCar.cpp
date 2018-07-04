@@ -12,6 +12,7 @@ void RCCar::init(){
     _remote.init(&irrecv,&_lcdDisplay);
     _car.init();
     _ultraSonic.init(&_servo);
+    _irProxi.init();
     _carSpeed = 0;
     _distance = 0;
     _carCommand = RC_STOP;
@@ -196,4 +197,28 @@ int RCCar::nUnitDistance(int nUnit[], int numberOfDirection){
     }
 
     return 0;
+}
+
+boolean RCCar::checkIRPLeft(){
+    return _irProxi.checkLeft();
+}
+
+boolean RCCar::checkIRPCenter(){
+    return _irProxi.checkCenter();
+}
+
+boolean RCCar::checkIRPRight(){
+    return _irProxi.checkRight();
+}
+//no Delay...
+void RCCar::nDForward(){
+    _car.fwdStraight(RCCAR_DEFAULT_SPEED);
+}
+
+void RCCar::nDTurnRight(){
+    _car.fwdRight(RCCAR_DEFAULT_SPEED);
+}
+
+void RCCar::nDTurnLeft(){
+    _car.fwdLeft(RCCAR_DEFAULT_SPEED);
 }
